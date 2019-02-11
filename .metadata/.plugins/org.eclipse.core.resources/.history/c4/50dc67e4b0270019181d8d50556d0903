@@ -1,0 +1,99 @@
+package com.mychat.chatTest.Dao;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.apache.ibatis.session.RowBounds;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.market.market.util.PageNavigator;
+import com.market.market.vo.Product;
+
+@Repository
+public class AdminDAO {
+
+	@Autowired
+	SqlSession session;
+
+	public HashMap<String, String> adminLogin(HashMap<String, String> map) {
+		HashMap<String, String> result;
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		result = mapper.adminLogin(map);
+		return result;
+	}
+
+	public int insertProduct(Product product) {
+		int result = 0;
+
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		try {
+			result = mapper.insertProduct(product);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
+
+	public ArrayList<Product> selectAllProduct() {
+		ArrayList<Product> pList = null;
+
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		try {
+			pList = mapper.selectAllProduct();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return pList;
+		}
+
+		return pList;
+	}
+	
+	public ArrayList<Product> selectAllProduct(String search,PageNavigator pn) {
+		ArrayList<Product> pList = null;
+
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		RowBounds rb=new RowBounds(pn.getStartBoardCurrentPage(),pn.getBoardPerPage());
+		try {
+			pList = mapper.selectAllProduct(rb,search);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return pList;
+		}
+
+		return pList;
+	}
+
+	public int updateProduct(Product product) {
+		int result = 0;
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		try {
+			result = mapper.updateProduct(product);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
+
+	public Product selectProduct(String productSeq) {
+		Product result;
+
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		result = mapper.selectProduct(productSeq);
+
+		return result;
+	}
+	
+	public int totalCount(String search) {
+		int result=0;
+		
+		AdminMapper mapper = session.getMapper(AdminMapper.class);
+		result = mapper.totalCount(search);
+		
+		return result;
+	}
+
+}

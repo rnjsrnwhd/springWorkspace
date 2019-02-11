@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AdminDAO.java&apos; to &apos;Chat/src/main/java/com.mychat.chatTest.Dao&apos;&#x0D;&#x0A;- Original project: &apos;Market&apos;&#x0D;&#x0A;- Destination element: &apos;Chat/src/main/java/com.mychat.chatTest.Dao&apos;&#x0D;&#x0A;- Original element: &apos;com.market.market.dao.AdminDAO.java&apos;" description="Copy compilation unit" destination="=Chat/src\/main\/java&lt;com.mychat.chatTest.Dao" element1="/src\/main\/java&lt;com.market.market.dao{AdminDAO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1549197621131" units="1" version="1.0"/>
+</session>

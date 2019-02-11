@@ -1,0 +1,15 @@
+package com.mychat.chatTest.Dao;
+
+import java.util.ArrayList;
+
+import com.mychat.chatTest.Vo.Room;
+
+public interface RoomMapper {
+	public int MakeRoom(Room room);
+	
+	public ArrayList<Room> selectAllRoom();
+	
+	public Room selectOneRoom(String roomseq);
+	
+	public int writeChat(Chat chat);
+}

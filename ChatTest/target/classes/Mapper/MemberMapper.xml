@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.my.chat.Dao.MemberMapper">
+
+	<insert id="join" parameterType="HashMap">
+	INSERT INTO
+		CHATUSER
+	(
+		USERID,
+		USERPW
+	)
+	VALUES
+	(
+		#{id},
+		#{pw}
+	)
+	</insert>
+	
+	<select id="login" resultType="String" parameterType="HashMap">
+	
+		SELECT
+			USERID
+		FROM 
+			CHATUSER
+		WHERE
+			USERID=#{id}
+			and
+			USERPW=#{pw}
+	
+	</select>
+
+</mapper>

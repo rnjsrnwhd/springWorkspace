@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시판 처리 SQL -->
+<mapper namespace="com.mychat.chatTest.Dao.RoomMapper">
+	<insert id="MakeRoom" parameterType="Room">
+		INSERT INTO ROOM(
+		ROOMSEQ,
+		USERID,
+		NAME,
+		INDATE		
+		)
+		VALUES(
+		ROOMSEQ.NEXTVAL,
+		#{userid},
+		#{name},
+		SYSDATE
+		)
+	
+	</insert>
+	
+ <!-- 개설된 채팅방 전체 검색 -->
+	<select id="selectAllRoom" resultType="Room">
+	SELECT 
+		ROOMSEQ,
+		USERID,
+		NAME,
+		INDATE	
+	FROM
+		ROOM
+	ORDER BY
+		ROOMSEQ DESC
+	</select>
+ <!--roomseq로 채팅방 하나검색 -->	
+	<select id="selectOneRoom" resultType="Room" parameterType="String">
+	SELECT 
+		ROOMSEQ,
+		USERID,
+		NAME,
+		INDATE	
+	FROM
+		ROOM
+	WHERE
+		ROOMSEQ=#{roomseq}
+	
+	</select>
+ <!--채팅입력 -->	
+	<insert id="writeChat" parameterType="Room">
+		INSERT INTO CHAT(
+		CHATSEQ,
+		ROOMSEQ,
+		USERID,
+		MESSAGE,
+		INDATE		
+		)
+		VALUES(
+		CHATSEQ.NEXTVAL,
+		ROOMSEQ.NEXTVAL,
+		#{userid},
+		#{message},
+		SYSDATE
+		)
+
+	</insert>
+</mapper>
+	

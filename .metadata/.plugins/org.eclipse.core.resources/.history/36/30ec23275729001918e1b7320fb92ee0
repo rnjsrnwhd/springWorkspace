@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>채팅방</title>
+</head>
+<body>
+<h1>${nowRoom.name} 채팅방 입니다!!</h1>
+<table>
+<tr>
+<td>방장 : ${nowRoom.userid}</td><td>생성일 : ${nowRoom.indate}</td>
+</tr>
+</table>
+</body>
+</html>

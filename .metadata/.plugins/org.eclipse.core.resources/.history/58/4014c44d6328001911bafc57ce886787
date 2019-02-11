@@ -1,0 +1,10 @@
+package com.mychat.chatTest.Dao;
+
+import java.util.HashMap;
+
+public interface MemberMapper {
+	
+	public int joinMember(HashMap<String, Object> user);
+
+	public String userLogin(HashMap<String, Object> user)
+};

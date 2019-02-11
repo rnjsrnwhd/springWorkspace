@@ -1,0 +1,5 @@
+package com.mychat.chatTest.Dao;
+
+public interface MemberMapper {
+
+}

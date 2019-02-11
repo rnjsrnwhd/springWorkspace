@@ -1,0 +1,5 @@
+package com.mychat.chatTest.Vo;
+
+public class Chatuser {
+
+}

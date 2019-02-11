@@ -1,0 +1,29 @@
+package com.mychat.chatTest.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class RoomController {
+	
+	
+	
+	/*작성일 2/5
+	작성자 권구종
+	act=채팅방목록*/
+	@RequestMapping(value="/gotoChatRooms", method=RequestMethod.GET)
+	public String gotoChatRooms() {
+
+		return "chatRoom";
+	}
+	
+	/*작성일 2/5
+	작성자 권구종
+	act=채팅방 만들기 페이지로 이동*/
+	@RequestMapping(value="/gotomakeChatRoom", method=RequestMethod.GET)
+	public String gotomakeChatRoom() {
+
+		return "makeChatRoom";
+	}
+}

@@ -1,0 +1,48 @@
+package com.mychat.chatTest.Dao;
+
+import java.util.ArrayList;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.mychat.chatTest.Vo.Room;
+
+@Repository
+public class RoomDAO {
+	
+	@Autowired
+	SqlSession session;
+	
+	public int MakeRoom(Room room) {
+		int result=0;
+		RoomMapper mapper=session.getMapper(RoomMapper.class);
+		
+		try {
+			result=mapper.MakeRoom(room);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public ArrayList<Room> selectAllRoom(){
+		ArrayList<Room> result = new ArrayList<Room>();
+		RoomMapper mapper=session.getMapper(RoomMapper.class);
+		
+		result=mapper.selectAllRoom();
+		
+		return result;
+		
+	}
+	
+	public Room selectOneRoom(String roomseq) {
+		Room result = null;
+		RoomMapper mapper=session.getMapper(RoomMapper.class);
+		
+		result=mapper.selectOneRoom(roomseq);
+		
+		return result;
+	}
+}

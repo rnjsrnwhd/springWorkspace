@@ -1,0 +1,27 @@
+package com.mychat.chatTest.Controller;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class MemberController {
+	
+	/*작성일 2/3
+	작성자 권구종
+	act=회원가입 페이지로 이동*/
+	@RequestMapping(value="/gotoJoinMember", method=RequestMethod.GET)
+	public String gotoJoinMember() {
+		
+		return "joinMember";
+	}
+	
+	@RequestMapping(value="/JoinMember", method=RequestMethod.POST)
+	public String JoinMember(String userid,String userpw) {
+		
+		return "Redirect:/";
+	}
+
+}

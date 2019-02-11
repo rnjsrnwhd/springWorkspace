@@ -1,0 +1,5 @@
+package com.mychat.chatTest.Interceptor;
+
+public class LoginInterceptor {
+
+}
