@@ -21,14 +21,14 @@ public class ChatController {
 	@Autowired
 	ChatDAO dao;
 	
-	@RequestMapping(value="/ajaxTest",method=RequestMethod.GET)
-	public @ResponseBody ArrayList<Chat> ajaxTest(String roomSeq) {
+	@RequestMapping(value="/selectChat", method=RequestMethod.GET)
+	public @ResponseBody ArrayList<Chat> selectChat(String roomSeq) {
 		
-		ArrayList<Chat> chatlist=dao.selectChat(roomSeq);
+		ArrayList<Chat> chatList=dao.selectChat(roomSeq);
 		
-		
-		return chatlist;
+		return chatList;
 	}
+	
 
 	@RequestMapping(value = "/goChat", method = RequestMethod.GET)
 	public String goChat( Model model) {
@@ -41,19 +41,17 @@ public class ChatController {
 	
 	@RequestMapping(value = "/goRoom", method = RequestMethod.GET)
 	public String goRoom(String roomSeq, Model model) {
-		//�빐�떦 諛⑹쓽 硫붿꽭吏� 紐⑸줉 媛��졇�삤湲�
+		//해당 방의 메세지 목록 가져오기
 		model.addAttribute("roomSeq",roomSeq);
 		return "room";
 	}
 	
 	@RequestMapping(value = "/insertChat", method = RequestMethod.POST)
-	public String insertChat(Chat chat, HttpSession session, Model model) {
+	public void insertChat(Chat chat, HttpSession session) {
 		
 		String userId=(String)session.getAttribute("userId");
 		chat.setUserId(userId);
-		
 		dao.insertChat(chat);
-		return "redirect:/goRoom?roomSeq="+chat.getRoomSeq();
 	}
 	
 	@RequestMapping(value = "/makeRoom", method = RequestMethod.GET)
