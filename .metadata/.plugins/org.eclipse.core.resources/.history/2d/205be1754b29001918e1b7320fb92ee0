@@ -1,7 +1,0 @@
-package com.mychat.chatTest.Dao;
-
-import com.mychat.chatTest.Vo.Room;
-
-public interface RoomMapper {
-	public int MakeRoom(Room room);
-}

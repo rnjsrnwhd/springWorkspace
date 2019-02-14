@@ -1,7 +1,0 @@
-package com.mychat.chatTest.Vo;
-
-public class Chatuser {
-	private String userid;
-	private String userpw;
-	
-}
